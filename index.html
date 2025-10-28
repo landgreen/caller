@@ -33,6 +33,7 @@
         <button v-on:click="resetCount">reset count</button>
         <button v-on:click="reset">reset names</button>
         <button v-on:click="tidy">tidy</button>
+        <button v-on:click="voice" id="voice">voice</button>
         <br>
         <button v-on:click="exportOut">save to JSON file</button>
         <button v-on:click="importIn">load from JSON file →</button>
@@ -41,11 +42,11 @@
       </div>
     </header>
     <br>
-    <grid-layout :layout="layout" :col-num="12" :row-height="40" :is-draggable="draggable" :is-resizable="resizable" :vertical-compact="false"
-      :margin="[15, 20]" :use-css-transforms="true">
+    <grid-layout :layout="layout" :col-num="12" :row-height="40" :is-draggable="draggable" :is-resizable="resizable"
+      :vertical-compact="false" :margin="[15, 20]" :use-css-transforms="true">
 
-      <grid-item v-for="item in layout" :x="item.x" :y="item.y" :w="item.w" :h="item.h" :i="item.i" @resized="resizedEvent" @moved="movedEvent"
-        v-bind:class="item.focus ? 'focus' : 'not-focus' ">
+      <grid-item v-for="item in layout" :x="item.x" :y="item.y" :w="item.w" :h="item.h" :i="item.i"
+        @resized="resizedEvent" @moved="movedEvent" v-bind:class="item.focus ? 'focus' : 'not-focus' ">
         <span class="text">{{item.name}}</span>
         <span class="num">{{item.num}}</span>
       </grid-item>
@@ -69,8 +70,8 @@
   <footer id='speech'></footer>
 
   <script src='lib/vue.min.js'></script>
-  <script src="lib/vue-grid-layout.min.js"></script>
-  <script src="lib/animals.js"></script>
+  <!-- <script src="lib/vue-grid-layout.min.js"></script> -->
+  <script src="lib/vue-grid-layout.umd.min.js"></script>
   <script src="index.js"></script>
 </body>
 
